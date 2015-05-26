@@ -34,12 +34,19 @@ namespace SingleInstanceApplication
         {
             // 在同一台主機相同使用者的範圍內進行 Mutex 互斥（採用 Local\名稱）
             // 在同一台主機所有使用者的範圍內進行 Mutex 互斥（採用 Global\名稱）
-            using (Mutex mutex = new Mutex(false, @"Global\" + assemblyGuid))
+            using (Mutex mutex = new Mutex(false, @"Local\" + assemblyGuid))
             {
                 // 檢查是否有相同名稱 Mutex 已存在
                 if (mutex.WaitOne(0, false) == false)
                 {
-                    MessageBox.Show("應用程式正在執行中！");
+                    // MessageBox.Show("應用程式正在執行中！");
+
+                    // 發送 message，使要執行的表單成為最上層表單
+                    NativeMethods.PostMessage(
+                        (IntPtr)NativeMethods.HWND_BROADCAST,
+                        NativeMethods.WM_SHOWME,
+                        IntPtr.Zero,
+                        IntPtr.Zero);
                 }
                 else
                 {
@@ -49,5 +56,16 @@ namespace SingleInstanceApplication
                 }
             }
         }
+    }
+
+    class NativeMethods
+    {
+        [DllImport("user32")]
+        public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
+        [DllImport("user32")]
+        public static extern int RegisterWindowMessage(string message);
+
+        public const int HWND_BROADCAST = 0XFFFF;
+        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
     }
 }
