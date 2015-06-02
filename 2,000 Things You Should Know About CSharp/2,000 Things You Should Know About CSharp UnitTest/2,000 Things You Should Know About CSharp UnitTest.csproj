@@ -61,6 +61,7 @@
     <Compile Include="0042 Interacting with an Object.cs" />
     <Compile Include="0043 Objects Are Instantiated on the Heap.cs" />
     <Compile Include="0044 Multiple References to the Same Object.cs" />
+    <Compile Include="0045 Static Members of a Class.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
