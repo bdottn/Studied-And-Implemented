@@ -2,8 +2,8 @@
 {
     class Person
     {
-        public string name { get; set; }
-        public int age { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
         public Person()
         {
@@ -12,8 +12,13 @@
 
         public Person(string name, int age)
         {
-            this.name = name;
-            this.age = age;
+            this.Name = name;
+            this.Age = age;
+        }
+
+        public string Description()
+        {
+            return string.Format("{0} is {1} yrs old.", this.Name, this.Age);
         }
     }
 }
