@@ -9,8 +9,16 @@ namespace SingleInstanceApplication
     static class Program
     {
         /// <summary>
-        /// 專案檔組件資訊的 Guid
+        /// 專案檔組件資訊的名稱
         /// </summary>
+        internal static string applicationName
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().GetName().Name;
+            }
+        }
+
         static string assemblyGuid
         {
             get
@@ -32,18 +40,12 @@ namespace SingleInstanceApplication
         [STAThread]
         static void Main()
         {
-            // 在同一台主機相同使用者的範圍內進行 Mutex 互斥（採用 Local\名稱）
-            // 在同一台主機所有使用者的範圍內進行 Mutex 互斥（採用 Global\名稱）
-            using (Mutex mutex = new Mutex(false, @"Local\" + assemblyGuid))
+            using (Mutex mutex = new Mutex(false, @"Global\" + assemblyGuid))
             {
-                // 檢查是否有相同名稱 Mutex 已存在
                 if (mutex.WaitOne(0, false) == false)
                 {
-                    // MessageBox.Show("應用程式正在執行中！");
-
-                    // 發送 message，使要執行的表單成為最上層表單
                     NativeMethods.PostMessage(
-                        (IntPtr)NativeMethods.HWND_BROADCAST,
+                        NativeMethods.FindWindow(null, applicationName),
                         NativeMethods.WM_SHOWME,
                         IntPtr.Zero,
                         IntPtr.Zero);
@@ -60,12 +62,24 @@ namespace SingleInstanceApplication
 
     class NativeMethods
     {
+        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+
         [DllImport("user32")]
         public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
         [DllImport("user32")]
         public static extern int RegisterWindowMessage(string message);
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-        public const int HWND_BROADCAST = 0XFFFF;
-        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+        public static void ShowToFront(string windowName)
+        {
+            IntPtr window = FindWindow(null, windowName);
+            ShowWindow(window, 1);
+            SetForegroundWindow(window);
+        }
     }
 }

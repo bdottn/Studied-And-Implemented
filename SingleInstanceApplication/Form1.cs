@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Reflection;
+using System.Windows.Forms;
 
 namespace SingleInstanceApplication
 {
@@ -7,6 +8,11 @@ namespace SingleInstanceApplication
         public Form1()
         {
             InitializeComponent();
+
+            this.Text = Program.applicationName;
+
+            this.notifyIcon1.Text = this.Text;
+            this.notifyIcon1.Icon = this.Icon;
         }
 
         // 覆寫 WndProc
@@ -14,20 +20,47 @@ namespace SingleInstanceApplication
         {
             if (message.Msg == NativeMethods.WM_SHOWME)
             {
-                // 若表單為最小化視窗，恢復原有大小
-                if (WindowState == FormWindowState.Minimized)
-                {
-                    WindowState = FormWindowState.Normal;
-                }
-
-                // 使表單成為最上層表單狀態
-                this.TopMost = true;
-
-                // 使表單不為最上層表單狀態，避免表單鎖定
-                this.TopMost = false;
+                this.ShowWindow();
             }
 
             base.WndProc(ref message);
+        }
+
+        private void Form1_Resize(object sender, System.EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.HideWindow();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.HideWindow();
+
+            e.Cancel = true;
+        }
+
+        private void tsmShow_Click(object sender, System.EventArgs e)
+        {
+            this.ShowWindow();
+        }
+
+        private void tsmClose_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ShowWindow()
+        {
+            NativeMethods.ShowToFront(Program.applicationName);
+        }
+
+        private void HideWindow()
+        {
+            this.notifyIcon1.Visible = true;
+            this.ShowInTaskbar = false;
+            this.Hide();
         }
     }
 }
