@@ -1,13 +1,21 @@
-# 顯示正在執行中的應用程式
+# 搭配 [NotifyIcon] 建立單一執行個體的應用程式
   
-　　在 [C# 使用 Mutex 建立單一執行個體的應用程式] 這篇中，說到了如何限制應用程式在同一時間內只能執行一個。但是有時候需要做到較友善一點的需求，例如在重複執行時跳出正在執行中的表單視窗。此時可以使用 [RegisterWindowMessage] 並在主要表單上覆寫 [WndProc] 來達到目的。
+　　前面說到的 [C# 使用 Mutex 建立單一執行個體的應用程式] 與 [顯示正在執行中的應用程式] 已經可以滿足大部份的狀態。下面的範例搭配 [NotifyIcon] 及 [ContextMenuStrip] 來實作按下最小化或關閉按鈕時縮至系統列，而非真正關閉表單動作。
   
 ```
 static class Program
 {
     /// <summary>
-    /// 專案檔組件資訊的 Guid
+    /// 專案檔組件資訊的名稱
     /// </summary>
+    internal static string applicationName
+    {
+        get
+        {
+            return Assembly.GetExecutingAssembly().GetName().Name;
+        }
+    }
+
     static string assemblyGuid
     {
         get
@@ -29,18 +37,12 @@ static class Program
     [STAThread]
     static void Main()
     {
-        // 在同一台主機相同使用者的範圍內進行 Mutex 互斥（採用 Local\名稱）
-        // 在同一台主機所有使用者的範圍內進行 Mutex 互斥（採用 Global\名稱）
-        using (Mutex mutex = new Mutex(false, @"Local\" + assemblyGuid))
+        using (Mutex mutex = new Mutex(false, @"Global\" + assemblyGuid))
         {
-            // 檢查是否有相同名稱 Mutex 已存在
             if (mutex.WaitOne(0, false) == false)
             {
-                // MessageBox.Show("應用程式正在執行中！");
-
-                // 發送 message，使要執行的表單成為最上層表單
                 NativeMethods.PostMessage(
-                    (IntPtr)NativeMethods.HWND_BROADCAST,
+                    NativeMethods.FindWindow(null, applicationName),
                     NativeMethods.WM_SHOWME,
                     IntPtr.Zero,
                     IntPtr.Zero);
@@ -57,51 +59,105 @@ static class Program
 
 class NativeMethods
 {
+    public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+
     [DllImport("user32")]
     public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
     [DllImport("user32")]
     public static extern int RegisterWindowMessage(string message);
-
-    public const int HWND_BROADCAST = 0XFFFF;
-    public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+    [DllImport("user32.dll")]
+    public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+    [DllImport("user32.dll")]
+    public static extern bool SetForegroundWindow(IntPtr hWnd);
+    [DllImport("user32.dll")]
+    public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+	
+    public static void ShowToFront(string windowName)
+    {
+        IntPtr window = FindWindow(null, windowName);
+        ShowWindow(window, 1);
+        SetForegroundWindow(window);
+    }
 }
 ```
   
 ##### Form1
 ```
+public Form1()
+{
+    InitializeComponent();
+
+    this.Text = Program.applicationName;
+
+    this.notifyIcon1.Text = this.Text;
+    this.notifyIcon1.Icon = this.Icon;
+}
+
 // 覆寫 WndProc
 protected override void WndProc(ref Message message)
 {
     if (message.Msg == NativeMethods.WM_SHOWME)
     {
-        // 若表單為最小化視窗，恢復原有大小
-        if (WindowState == FormWindowState.Minimized)
-        {
-        	WindowState = FormWindowState.Normal;
-        }
-        
-        // 使表單成為最上層表單狀態
-        this.TopMost = true;
-        
-        // 使表單不為最上層表單狀態，避免表單鎖定
-        this.TopMost = false;
+        this.ShowWindow();
     }
-    
+
     base.WndProc(ref message);
+}
+
+private void Form1_Resize(object sender, System.EventArgs e)
+{
+    if (this.WindowState == FormWindowState.Minimized)
+    {
+        this.HideWindow();
+    }
+}
+
+private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+{
+    this.HideWindow();
+
+    e.Cancel = true;
+}
+
+private void tsmShow_Click(object sender, System.EventArgs e)
+{
+    this.ShowWindow();
+}
+
+private void tsmClose_Click(object sender, System.EventArgs e)
+{
+    Application.Exit();
+}
+
+private void ShowWindow()
+{
+    NativeMethods.ShowToFront(Program.applicationName);
+}
+
+private void HideWindow()
+{
+    this.notifyIcon1.Visible = true;
+    this.ShowInTaskbar = false;
+    this.Hide();
 }
 ```
   
 #### 參考連結：
 >1. Registerwindowmessage (user32)：[RegisterWindowMessage]
 2. Control.WndProc Method：[WndProc]
-3. Sanity Free Coding：[C# .NET Single Instance Application]
+3. FindWindow function：[FindWindow]
+4. NotifyIcon 類別：[NotifyIcon]
+5. ContextMenuStrip 類別：[ContextMenuStrip]
 
 #### My Blog：
->[顯示正在執行中的應用程式]  
+>[搭配 NotifyIcon 建立單一執行個體的應用程式]  
 
 
 [RegisterWindowMessage]:http://www.pinvoke.net/default.aspx/user32.registerwindowmessage
 [WndProc]:https://msdn.microsoft.com/en-us/library/system.windows.forms.control.wndproc%28v=vs.110%29.aspx
-[C# .NET Single Instance Application]:http://sanity-free.org/143/csharp_dotnet_single_instance_application.html
+[FindWindow]:https://msdn.microsoft.com/zh-tw/library/windows/desktop/ms633499%28v=vs.85%29.aspx
 [C# 使用 Mutex 建立單一執行個體的應用程式]:http://bdottn.github.io/2015/05/26/SingleInstanceApplication/
 [顯示正在執行中的應用程式]:http://bdottn.github.io/2015/05/26/ShowRunningForm/
+[NotifyIcon]:https://msdn.microsoft.com/zh-tw/library/system.windows.forms.notifyicon%28v=vs.110%29.aspx
+[ContextMenuStrip]:https://msdn.microsoft.com/zh-tw/library/system.windows.forms.contextmenustrip%28v=vs.100%29.aspx
+[搭配 NotifyIcon 建立單一執行個體的應用程式]:http://bdottn.github.io/2015/06/02/SingleInstanceApplicationUsingNotifyIcon/
