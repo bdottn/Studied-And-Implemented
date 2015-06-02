@@ -55,6 +55,7 @@
     <Compile Include="0035 Declaring Variables.cs" />
     <Compile Include="0036 Variable Initialization and Definite Assignment.cs" />
     <Compile Include="0037 All Value Types Have a Default Constructor.cs" />
+    <Compile Include="0039 MinValue／MaxValue for Numeric Types.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
