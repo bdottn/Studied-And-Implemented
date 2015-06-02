@@ -58,6 +58,7 @@
     <Compile Include="0039 MinValue／MaxValue for Numeric Types.cs" />
     <Compile Include="0040 TrueString and FalseString.cs" />
     <Compile Include="0041 Instantiating Reference Types Using the new Keyword.cs" />
+    <Compile Include="0042 Interacting with an Object.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
