@@ -5,6 +5,8 @@
         public string Name { get; set; }
         public int Age { get; set; }
 
+        public static int PersonCount { get; set; }
+
         public Person()
         {
 
@@ -19,6 +21,11 @@
         public string Description()
         {
             return string.Format("{0} is {1} yrs old.", this.Name, this.Age);
+        }
+
+        public static string DoGeneralPersonStuff()
+        {
+            return string.Format("{0} people.", PersonCount);
         }
     }
 }
