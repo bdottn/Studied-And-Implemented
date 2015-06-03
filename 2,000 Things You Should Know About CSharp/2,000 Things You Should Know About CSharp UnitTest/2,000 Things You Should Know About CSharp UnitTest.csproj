@@ -70,6 +70,7 @@
     <Compile Include="0051 Float Literals Must Use f Suffix.cs" />
     <Compile Include="0052 Arithmetic Operators.cs" />
     <Compile Include="0053 Modulus.cs" />
+    <Compile Include="0054 Increment and Decrement Operators.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
