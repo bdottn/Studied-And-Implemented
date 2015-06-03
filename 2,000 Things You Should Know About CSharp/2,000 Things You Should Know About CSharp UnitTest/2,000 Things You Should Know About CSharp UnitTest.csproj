@@ -63,6 +63,7 @@
     <Compile Include="0044 Multiple References to the Same Object.cs" />
     <Compile Include="0045 Static Members of a Class.cs" />
     <Compile Include="0046 There Is Only One Copy of Static Data.cs" />
+    <Compile Include="0047 Numeric Conversions Through Casting.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
