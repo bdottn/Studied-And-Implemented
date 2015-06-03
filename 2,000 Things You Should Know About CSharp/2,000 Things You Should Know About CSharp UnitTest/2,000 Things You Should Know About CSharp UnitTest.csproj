@@ -71,6 +71,7 @@
     <Compile Include="0052 Arithmetic Operators.cs" />
     <Compile Include="0053 Modulus.cs" />
     <Compile Include="0054 Increment and Decrement Operators.cs" />
+    <Compile Include="0055 Integer Division Results in Truncation.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
