@@ -67,6 +67,7 @@
     <Compile Include="0048 How Explicit Casts Fail.cs" />
     <Compile Include="0049 When to Use the Decimal Type.cs" />
     <Compile Include="0050 Static Methods of System.Char.cs" />
+    <Compile Include="0051 Float Literals Must Use f Suffix.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
