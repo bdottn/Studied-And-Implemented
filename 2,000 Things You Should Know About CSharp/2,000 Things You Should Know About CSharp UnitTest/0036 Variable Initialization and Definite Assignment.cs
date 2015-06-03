@@ -20,6 +20,7 @@ namespace _2_000_Things_You_Should_Know_About_CSharp_UnitTest
         {
             int i;
             // 錯誤：使用未指定的區域變數 'i'
+            // TODO i = 0
             int j = i + 1;
         }
 
