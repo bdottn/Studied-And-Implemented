@@ -65,6 +65,7 @@
     <Compile Include="0046 There Is Only One Copy of Static Data.cs" />
     <Compile Include="0047 Numeric Conversions Through Casting.cs" />
     <Compile Include="0048 How Explicit Casts Fail.cs" />
+    <Compile Include="0049 When to Use the Decimal Type.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
