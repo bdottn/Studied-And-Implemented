@@ -27,5 +27,12 @@
         {
             return string.Format("{0} people.", PersonCount);
         }
+
+        public static string Motto { get; set; }
+
+        public string UseMotto()
+        {
+            return Motto;
+        }
     }
 }
