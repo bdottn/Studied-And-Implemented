@@ -72,6 +72,7 @@
     <Compile Include="0053 Modulus.cs" />
     <Compile Include="0054 Increment and Decrement Operators.cs" />
     <Compile Include="0055 Integer Division Results in Truncation.cs" />
+    <Compile Include="0056 How to Round When Converting Float to Int.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
