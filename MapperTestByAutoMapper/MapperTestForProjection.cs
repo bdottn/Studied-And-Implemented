@@ -38,7 +38,7 @@ namespace MapperTestByAutoMapper
         {
             // Source initial
             var src =
-                new Source
+                new Source()
                 {
                     Date = new DateTime(2008, 12, 15, 20, 30, 0),
                     Title = "Company Holiday Party",
