@@ -53,9 +53,18 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source { Value = 5 },
-                    new Source { Value = 6 },
-                    new Source { Value = 7 },
+                    new Source 
+                    {
+                        Value = 5
+                    },
+                    new Source 
+                    {
+                        Value = 6 
+                    },
+                    new Source 
+                    {
+                        Value = 7 
+                    },
                 };
 
             // Configure
@@ -77,9 +86,18 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source { Value = 5 },
-                    new Source { Value = 6 },
-                    new Source { Value = 7 },
+                    new Source 
+                    {
+                        Value = 5
+                    },
+                    new Source 
+                    {
+                        Value = 6 
+                    },
+                    new Source 
+                    {
+                        Value = 7 
+                    },
                 };
 
             // Configure
@@ -101,9 +119,18 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source { Value = 5 },
-                    new Source { Value = 6 },
-                    new Source { Value = 7 },
+                    new Source 
+                    {
+                        Value = 5
+                    },
+                    new Source 
+                    {
+                        Value = 6 
+                    },
+                    new Source 
+                    {
+                        Value = 7 
+                    },
                 };
 
             // Configure
@@ -125,9 +152,18 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source { Value = 5 },
-                    new Source { Value = 6 },
-                    new Source { Value = 7 },
+                    new Source 
+                    {
+                        Value = 5
+                    },
+                    new Source 
+                    {
+                        Value = 6 
+                    },
+                    new Source 
+                    {
+                        Value = 7 
+                    },
                 };
 
             // Configure
@@ -149,9 +185,18 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source { Value = 5 },
-                    new Source { Value = 6 },
-                    new Source { Value = 7 },
+                    new Source 
+                    {
+                        Value = 5
+                    },
+                    new Source 
+                    {
+                        Value = 6 
+                    },
+                    new Source 
+                    {
+                        Value = 7 
+                    },
                 };
 
             // Configure
