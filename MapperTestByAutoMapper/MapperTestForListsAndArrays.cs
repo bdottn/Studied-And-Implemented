@@ -20,7 +20,7 @@ namespace MapperTestByAutoMapper
          * 　　IList<T>
          * 　　List<T>
          * 　　Arrays
-         * 不必為泛型集合類別作特別的設定，只需要對集合的成員作設定即可
+         * 在使用的時候，不必為泛型集合類別作特別的設定，只需要對集合的成員作設定即可
          * 
          * 有時候集合內的成員不僅僅是一種類型，AutoMapper 也支援多組態的集合
          * 除了需要增加子類別的設定外，在父類別設定時需要使用 Include 來包含子類別的設定
@@ -53,15 +53,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -86,15 +86,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -119,15 +119,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -152,15 +152,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -185,15 +185,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
