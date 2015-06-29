@@ -53,15 +53,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -86,15 +86,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -119,15 +119,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -152,15 +152,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
@@ -185,15 +185,15 @@ namespace MapperTestByAutoMapper
             var srcs =
                 new Source[]
                 {
-                    new Source 
+                    new Source()
                     {
                         Value = 5
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 6 
                     },
-                    new Source 
+                    new Source()
                     {
                         Value = 7 
                     },
