@@ -58,6 +58,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MapperTestForProjection.cs" />
     <Compile Include="MapperTestForFlattening.cs" />
     <Compile Include="MapperTestForConfigurationValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
