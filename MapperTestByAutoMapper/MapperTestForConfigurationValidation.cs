@@ -11,7 +11,7 @@ namespace MapperTestByAutoMapper
         /*
          * 有時候屬性很多很雜，難免會有所遺漏
          * AutoMapper 提供了一個 AssertConfigurationIsValid 的檢查方法
-         * 在目標成員有未被設定的情況下會產生 AutoMapperConfigurationException
+         * 在目標成員有未被設定對應的情況下會產生 AutoMapperConfigurationException
          */
 
         class Source
