@@ -64,6 +64,7 @@
     <Compile Include="MapperTestForFlattening.cs" />
     <Compile Include="MapperTestForConfigurationValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MapperTestForNullSubstitution.cs" />
     <Compile Include="MapperTestForCustomValueResolver.cs" />
     <Compile Include="MapperTestForNestedMapping.cs" />
   </ItemGroup>
