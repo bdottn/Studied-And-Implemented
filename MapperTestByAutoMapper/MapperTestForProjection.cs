@@ -11,7 +11,7 @@ namespace MapperTestByAutoMapper
     {
         /*
          * 由於目標型別的成員結構可能不完全等同於來源成員結構
-         * 在這種時候需要使用 MapFrom 設定自定義設定來處理 Mapper 成員結構
+         * 在這種時候需要使用 MapFrom 設定自定義的設定來處理目標成員結構
          */
 
         class Source
