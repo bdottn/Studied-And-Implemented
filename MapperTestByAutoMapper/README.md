@@ -260,4 +260,4 @@ public void MapperTestForListsAndArrays_PolymorphicElementTypes_InputSources_Ret
 >[Mapper Lists And Arrays][Mapper Lists And Arrays]  
 
 [Lists and arrays]:https://github.com/AutoMapper/AutoMapper/wiki/Lists-and-arrays
-[MapperTestForListsAndArrays]:http://bdottn.github.io/2015/06/29/MapperTestForListsAndArrays/
+[Mapper Lists And Arrays]:http://bdottn.github.io/2015/06/29/MapperTestForListsAndArrays/
