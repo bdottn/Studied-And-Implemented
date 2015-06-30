@@ -10,8 +10,10 @@ namespace MapperTestByAutoMapper
     public class MapperTestForCustomTypeConverter
     {
         /*
-         * 在種種原因下，可能 Mapper 的時候成員的類型並不相同
-         * AutoMapper 提供了 ConvertUsing 來處理這樣的情況
+         * 在種種原因下，可能對應物件的來源成員與目標成員的類型並不相同
+         * AutoMapper 提供了 ConvertUsing 來處理此類對應的情況
+         * 在 ConvertUsing 中除了可以使用內建的轉型方式外
+         * 也可以藉由實作 ITypeConverter<in TSource, out TDestination> 來撰寫自定義的轉型方式
          */
 
         class Source
