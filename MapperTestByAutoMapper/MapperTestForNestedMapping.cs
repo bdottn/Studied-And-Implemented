@@ -9,9 +9,9 @@ namespace MapperTestByAutoMapper
     public class MapperTestForNestedMapping
     {
         /*
-         * 有時候型別並不是簡單類型，而是一個複雜類型
-         * 此時在設定上需要記得加上其他類型的設定
-         * AutoMapper 才能在碰到其他類型時順利的 Mapper
+         * 有時候型別並不是簡單型別，而是由多個型別組合而成的一個複合型別
+         * 此時在設定上需要加上其他型別的設定
+         * AutoMapper 才能在碰到其他型別時有處理的依據
          */
 
         class Source
