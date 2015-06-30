@@ -17,7 +17,7 @@ namespace MapperTestByAutoMapper
          * 　　1. 明確的指派（使用 MapFrom）
          * 　　2. 位於繼承設定中明確的指派
          * 　　3. 設定中忽略的成員（Ignore）
-         * 　　4. 成員中因位公約自動指派的成員
+         * 　　4. 成員中因為公約自動指派的成員
          */
 
         class Order
