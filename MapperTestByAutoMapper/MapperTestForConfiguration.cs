@@ -9,8 +9,8 @@ namespace MapperTestByAutoMapper
     public class MapperTestForConfiguration
     {
         /*
-         * 可以將 Configure 的設定寫在一個繼承自 Profile 的類別中
-         * 在 Initialize 時將這些類別加入即可
+         * 可以將 AutoMapper 的設定分別寫在繼承自 Profile 的類別當中
+         * 在 AutoMapper Initialize 時將這些類別加入即可
          */
 
         class Source
