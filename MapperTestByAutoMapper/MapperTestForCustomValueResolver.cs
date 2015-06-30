@@ -10,7 +10,7 @@ namespace MapperTestByAutoMapper
     {
         /*
          * 有些時候，目標成員值可能需要透過來源成員進行計算或調整
-         * AutoMapper 提供了 ValueResolver 泛型類別
+         * AutoMapper 提供了 ValueResolver<TSource, TDestination> 抽象類別
          * 可以藉由繼承 ValueResolver 類別來複寫 ResolveCore 方法
          */
 
