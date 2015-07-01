@@ -9,7 +9,7 @@ namespace MapperTestByAutoMapper
     public class MapperTestForCondition
     {
         /*
-         * AutoMapper 提供了 Condition 來限定來源成員值
+         * AutoMapper 提供了 Condition 方法，可以藉由限定來源成員值處理對應成員
          */
 
         class Source
