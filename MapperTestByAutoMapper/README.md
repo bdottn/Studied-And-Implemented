@@ -22,6 +22,7 @@ class Destination
 }
 
 [TestMethod]
+[ExpectedException(typeof(AutoMapperConfigurationException))]
 public void MapperTestForConfigurationValidation_ThrowAutoMapperConfigurationException()
 {
     // Configure
@@ -35,9 +36,11 @@ public void MapperTestForConfigurationValidation_ThrowAutoMapperConfigurationExc
   
 #### 參考連結：
 >1. Configuration Validation：[Configuration Validation]
+2. 測試預期中的例外狀況：[測試預期中的例外狀況]
 
 #### My Blog：
 >[Mapper Configuration Validation][MapperTestForConfigurationValidation]  
 
 [Configuration Validation]:https://github.com/AutoMapper/AutoMapper/wiki/Configuration-validation
+[測試預期中的例外狀況]:https://github.com/bdottn/Studied-And-Implemented/tree/TestForException/ProjectForUnitTest
 [MapperTestForConfigurationValidation]:http://bdottn.github.io/2015/06/29/MapperTestForConfigurationValidation/
