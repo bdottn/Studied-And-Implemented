@@ -9,9 +9,9 @@ namespace ProjectForUnitTest
     public class TestForException
     {
         /*
-         * 使用 ExpectedExceptionAttribute 表示測試方法執行期間所發生的預期例外狀況。
+         * 使用 ExpectedExceptionAttribute 表示測試方法執行期間所發生的預期例外狀況
          * 使用方法為在 Method 上加上 [ExpectedException(exceptionType)]
-         * 如果擲回預期的 exceptionType，則測試方法將會成功。
+         * 如果擲回預期的 exceptionType，則測試方法將會成功
          */
 
         class DivisionClass
