@@ -22,7 +22,7 @@ namespace ProjectForUnitTest
             }
         }
 
-        [TestMethod()]
+        [TestMethod]
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivideTest_InputZeroDenominator_ReturnDivideByZeroException()
         {
