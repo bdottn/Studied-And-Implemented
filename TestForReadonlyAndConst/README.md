@@ -1,9 +1,9 @@
 # 常數 [const] 與 [readonly] 差別
   
-> [const]
+> [const]  
 　　可以使用 const 關鍵字來宣告常數欄位或區域常數。常數欄位和區域常數不是變數，無法修改。常數可以是數值、布林值、字串或 null 參考。請勿建立用來表示想隨時變更之資訊的常數。  
   
-> [readonly]
+> [readonly]  
 　　欄位宣告如果包含 readonly 修飾詞，由宣告引入的欄位設定只能發生在宣告的一部分或者是相同類別裡的建構函式。  
   
 　　兩者皆為宣告常數的關鍵字。在效能方面，const 比 static readonly 好一些。而功能方面似乎大同小異，但是有些許的不同：
@@ -42,7 +42,7 @@ namespace ConsoleApplicationClassLibrary
 
 ![執行結果01][TestForReadonlyAndConst01]
 
-　　今天突然需求變更，我需要將數值區間變成 9 ~ 19。顯而易見的，我們會嘗試抽換 dll 來進行需求變更。
+　　今天突然需求變更，我需要將數值區間變成 9 ~ 19。顯而易見地，我們會嘗試抽換 dll 來進行需求變更。
 ```
 namespace ConsoleApplicationClassLibrary
 {
