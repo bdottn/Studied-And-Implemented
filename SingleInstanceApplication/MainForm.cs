@@ -1,24 +1,23 @@
-﻿using System.Reflection;
+﻿using System;
 using System.Windows.Forms;
 
 namespace SingleInstanceApplication
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
             this.Text = Program.applicationName;
-
-            this.notifyIcon1.Text = this.Text;
-            this.notifyIcon1.Icon = this.Icon;
+            this.ntiMain.Text = Program.applicationName;
+            this.ntiMain.Icon = this.Icon;
         }
 
         // 覆寫 WndProc
         protected override void WndProc(ref Message message)
         {
-            if (message.Msg == NativeMethods.WM_SHOWME)
+            if (message.Msg == NativeMethods.ShowMainForm)
             {
                 this.ShowWindow();
             }
@@ -26,7 +25,7 @@ namespace SingleInstanceApplication
             base.WndProc(ref message);
         }
 
-        private void Form1_Resize(object sender, System.EventArgs e)
+        private void MainForm_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
@@ -34,19 +33,19 @@ namespace SingleInstanceApplication
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.HideWindow();
 
             e.Cancel = true;
         }
 
-        private void tsmShow_Click(object sender, System.EventArgs e)
+        private void tsmShow_Click(object sender, EventArgs e)
         {
             this.ShowWindow();
         }
 
-        private void tsmClose_Click(object sender, System.EventArgs e)
+        private void tsmClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -58,7 +57,7 @@ namespace SingleInstanceApplication
 
         private void HideWindow()
         {
-            this.notifyIcon1.Visible = true;
+            this.ntiMain.Visible = true;
             this.ShowInTaskbar = false;
             this.Hide();
         }

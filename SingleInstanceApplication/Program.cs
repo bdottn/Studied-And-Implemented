@@ -8,13 +8,11 @@ namespace SingleInstanceApplication
 {
     static class Program
     {
-        /// <summary>
-        /// 專案檔組件資訊的名稱
-        /// </summary>
         internal static string applicationName
         {
             get
             {
+                // 專案檔組件資訊的名稱
                 return Assembly.GetExecutingAssembly().GetName().Name;
             }
         }
@@ -24,7 +22,7 @@ namespace SingleInstanceApplication
             get
             {
                 object[] attributes =
-                    Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), false);
+                    Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
 
                 if (attributes.Length == 0)
                 {
@@ -46,7 +44,7 @@ namespace SingleInstanceApplication
                 {
                     NativeMethods.PostMessage(
                         NativeMethods.FindWindow(null, applicationName),
-                        NativeMethods.WM_SHOWME,
+                        NativeMethods.ShowMainForm,
                         IntPtr.Zero,
                         IntPtr.Zero);
                 }
@@ -54,7 +52,7 @@ namespace SingleInstanceApplication
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Form1());
+                    Application.Run(new MainForm());
                 }
             }
         }
@@ -62,7 +60,7 @@ namespace SingleInstanceApplication
 
     class NativeMethods
     {
-        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+        public static readonly int ShowMainForm = RegisterWindowMessage("ShowMainForm");
 
         [DllImport("user32")]
         public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
