@@ -8,15 +8,12 @@ namespace SingleInstanceApplication
 {
     static class Program
     {
-        /// <summary>
-        /// 專案檔組件資訊的 Guid
-        /// </summary>
         static string assemblyGuid
         {
             get
             {
                 object[] attributes =
-                    Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), false);
+                    Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
 
                 if (attributes.Length == 0)
                 {
@@ -45,7 +42,7 @@ namespace SingleInstanceApplication
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Form1());
+                    Application.Run(new MainForm());
                 }
             }
         }
