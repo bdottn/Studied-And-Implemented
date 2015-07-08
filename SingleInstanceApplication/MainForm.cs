@@ -2,9 +2,9 @@
 
 namespace SingleInstanceApplication
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -12,7 +12,7 @@ namespace SingleInstanceApplication
         // 覆寫 WndProc
         protected override void WndProc(ref Message message)
         {
-            if (message.Msg == NativeMethods.WM_SHOWME)
+            if (message.Msg == NativeMethods.ShowMainForm)
             {
                 // 若表單為最小化視窗，恢復原有大小
                 if (WindowState == FormWindowState.Minimized)
