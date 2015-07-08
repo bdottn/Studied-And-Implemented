@@ -2,18 +2,16 @@
   
 　　在 [C# 使用 Mutex 建立單一執行個體的應用程式] 這篇中，說到了如何限制應用程式在同一時間內只能執行一個。但是有時候需要做到較友善一點的需求，例如在重複執行時跳出正在執行中的表單視窗。此時可以使用 [RegisterWindowMessage] 並在主要表單上覆寫 [WndProc] 來達到目的。
   
+#### Program.cs
 ```
 static class Program
 {
-    /// <summary>
-    /// 專案檔組件資訊的 Guid
-    /// </summary>
     static string assemblyGuid
     {
         get
         {
             object[] attributes =
-                Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), false);
+                Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
 
             if (attributes.Length == 0)
             {
@@ -41,7 +39,7 @@ static class Program
                 // 發送 message，使要執行的表單成為最上層表單
                 NativeMethods.PostMessage(
                     (IntPtr)NativeMethods.HWND_BROADCAST,
-                    NativeMethods.WM_SHOWME,
+                    NativeMethods.ShowMainForm,
                     IntPtr.Zero,
                     IntPtr.Zero);
             }
@@ -49,7 +47,7 @@ static class Program
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
+                Application.Run(new MainForm());
             }
         }
     }
@@ -63,30 +61,30 @@ class NativeMethods
     public static extern int RegisterWindowMessage(string message);
 
     public const int HWND_BROADCAST = 0XFFFF;
-    public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+    public static readonly int ShowMainForm = RegisterWindowMessage("ShowMainForm");
 }
 ```
   
-##### Form1
+#### MainForm.cs
 ```
 // 覆寫 WndProc
 protected override void WndProc(ref Message message)
 {
-    if (message.Msg == NativeMethods.WM_SHOWME)
+    if (message.Msg == NativeMethods.ShowMainForm)
     {
         // 若表單為最小化視窗，恢復原有大小
         if (WindowState == FormWindowState.Minimized)
         {
-        	WindowState = FormWindowState.Normal;
+            WindowState = FormWindowState.Normal;
         }
-        
+
         // 使表單成為最上層表單狀態
         this.TopMost = true;
-        
+
         // 使表單不為最上層表單狀態，避免表單鎖定
         this.TopMost = false;
     }
-    
+
     base.WndProc(ref message);
 }
 ```
