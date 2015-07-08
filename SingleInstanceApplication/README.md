@@ -1,17 +1,16 @@
 # 搭配 [NotifyIcon] 建立單一執行個體的應用程式
   
-　　前面說到的 [C# 使用 Mutex 建立單一執行個體的應用程式] 與 [顯示正在執行中的應用程式] 已經可以滿足大部份的狀態。下面的範例搭配 [NotifyIcon] 及 [ContextMenuStrip] 來實作按下最小化或關閉按鈕時縮至系統列，而非真正關閉表單動作。
+　　前面說到的 [C# 使用 Mutex 建立單一執行個體的應用程式] 與 [顯示正在執行中的應用程式] 已經可以滿足大部份的狀態。下面的範例搭配 [NotifyIcon] 及 [ContextMenuStrip] 來實作按下最小化或關閉按鈕時縮至系統列，而非真正關閉表單動作。  
   
+#### Program.cs
 ```
 static class Program
 {
-    /// <summary>
-    /// 專案檔組件資訊的名稱
-    /// </summary>
     internal static string applicationName
     {
         get
         {
+            // 專案檔組件資訊的名稱
             return Assembly.GetExecutingAssembly().GetName().Name;
         }
     }
@@ -21,7 +20,7 @@ static class Program
         get
         {
             object[] attributes =
-                Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.InteropServices.GuidAttribute), false);
+                Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
 
             if (attributes.Length == 0)
             {
@@ -43,7 +42,7 @@ static class Program
             {
                 NativeMethods.PostMessage(
                     NativeMethods.FindWindow(null, applicationName),
-                    NativeMethods.WM_SHOWME,
+                    NativeMethods.ShowMainForm,
                     IntPtr.Zero,
                     IntPtr.Zero);
             }
@@ -51,7 +50,7 @@ static class Program
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
+                Application.Run(new MainForm());
             }
         }
     }
@@ -59,7 +58,7 @@ static class Program
 
 class NativeMethods
 {
-    public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+    public static readonly int ShowMainForm = RegisterWindowMessage("ShowMainForm");
 
     [DllImport("user32")]
     public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);
@@ -71,7 +70,7 @@ class NativeMethods
     public static extern bool SetForegroundWindow(IntPtr hWnd);
     [DllImport("user32.dll")]
     public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-	
+
     public static void ShowToFront(string windowName)
     {
         IntPtr window = FindWindow(null, windowName);
@@ -81,22 +80,21 @@ class NativeMethods
 }
 ```
   
-##### Form1
+#### MainForm.cs
 ```
-public Form1()
+public MainForm()
 {
     InitializeComponent();
 
     this.Text = Program.applicationName;
-
-    this.notifyIcon1.Text = this.Text;
-    this.notifyIcon1.Icon = this.Icon;
+    this.ntiMain.Text = Program.applicationName;
+    this.ntiMain.Icon = this.Icon;
 }
 
 // 覆寫 WndProc
 protected override void WndProc(ref Message message)
 {
-    if (message.Msg == NativeMethods.WM_SHOWME)
+    if (message.Msg == NativeMethods.ShowMainForm)
     {
         this.ShowWindow();
     }
@@ -104,7 +102,7 @@ protected override void WndProc(ref Message message)
     base.WndProc(ref message);
 }
 
-private void Form1_Resize(object sender, System.EventArgs e)
+private void MainForm_Resize(object sender, EventArgs e)
 {
     if (this.WindowState == FormWindowState.Minimized)
     {
@@ -112,19 +110,19 @@ private void Form1_Resize(object sender, System.EventArgs e)
     }
 }
 
-private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 {
     this.HideWindow();
 
     e.Cancel = true;
 }
 
-private void tsmShow_Click(object sender, System.EventArgs e)
+private void tsmShow_Click(object sender, EventArgs e)
 {
     this.ShowWindow();
 }
 
-private void tsmClose_Click(object sender, System.EventArgs e)
+private void tsmClose_Click(object sender, EventArgs e)
 {
     Application.Exit();
 }
@@ -136,7 +134,7 @@ private void ShowWindow()
 
 private void HideWindow()
 {
-    this.notifyIcon1.Visible = true;
+    this.ntiMain.Visible = true;
     this.ShowInTaskbar = false;
     this.Hide();
 }
