@@ -32,7 +32,7 @@ namespace ConsoleApplicationClassLibrary
 {
     public class ConstantClass
     {
-        public static int BeginNumber = 0;
+        public static readonly int BeginNumber = 0;
 
         public const int EndNumber = 10;
     }
@@ -48,7 +48,7 @@ namespace ConsoleApplicationClassLibrary
 {
     public class ConstantClass
     {
-        public static int BeginNumber = 9;
+        public static readonly int BeginNumber = 9;
 
         public const int EndNumber = 20;
     }
