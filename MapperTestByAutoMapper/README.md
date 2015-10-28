@@ -1,5 +1,4 @@
 # Mapper Configuration Validation
-  
 　　有時候屬性很多很雜，難免會有所遺漏。AutoMapper 提供了一個 AssertConfigurationIsValid 的檢查方法，在目標成員有未被設定對應的情況下會產生 AutoMapperConfigurationException。
   
 ```
@@ -34,13 +33,13 @@ public void MapperTestForConfigurationValidation_ThrowAutoMapperConfigurationExc
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Configuration Validation：[Configuration Validation]
 2. 測試預期中的例外狀況：[測試預期中的例外狀況]
-
-#### My Blog：
->[Mapper Configuration Validation][MapperTestForConfigurationValidation]  
-
+  
+#### My Blog
+>[Mapper Configuration Validation][MapperTestForConfigurationValidation]
+  
 [Configuration Validation]:https://github.com/AutoMapper/AutoMapper/wiki/Configuration-validation
 [測試預期中的例外狀況]:https://github.com/bdottn/Studied-And-Implemented/tree/TestForException/ProjectForUnitTest
 [MapperTestForConfigurationValidation]:http://bdottn.github.io/2015/06/29/MapperTestForConfigurationValidation/
