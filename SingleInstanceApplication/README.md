@@ -93,7 +93,7 @@ protected override void WndProc(ref Message message)
 2. Control.WndProc Method：[WndProc]
 3. Sanity Free Coding：[C# .NET Single Instance Application]
   
-#### My Blog：
+#### My Blog
 >[顯示正在執行中的應用程式]
   
 [RegisterWindowMessage]:http://www.pinvoke.net/default.aspx/user32.registerwindowmessage
