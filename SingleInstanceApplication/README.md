@@ -1,5 +1,4 @@
 # 顯示正在執行中的應用程式
-  
 　　在 [C# 使用 Mutex 建立單一執行個體的應用程式] 這篇中，說到了如何限制應用程式在同一時間內只能執行一個。但是有時候需要做到較友善一點的需求，例如在重複執行時跳出正在執行中的表單視窗。此時可以使用 [RegisterWindowMessage] 並在主要表單上覆寫 [WndProc] 來達到目的。
   
 #### Program.cs
@@ -89,15 +88,14 @@ protected override void WndProc(ref Message message)
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Registerwindowmessage (user32)：[RegisterWindowMessage]
 2. Control.WndProc Method：[WndProc]
 3. Sanity Free Coding：[C# .NET Single Instance Application]
-
+  
 #### My Blog：
->[顯示正在執行中的應用程式]  
-
-
+>[顯示正在執行中的應用程式]
+  
 [RegisterWindowMessage]:http://www.pinvoke.net/default.aspx/user32.registerwindowmessage
 [WndProc]:https://msdn.microsoft.com/en-us/library/system.windows.forms.control.wndproc%28v=vs.110%29.aspx
 [C# .NET Single Instance Application]:http://sanity-free.org/143/csharp_dotnet_single_instance_application.html
