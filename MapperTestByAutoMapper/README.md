@@ -1,5 +1,4 @@
 # Condition Mapper
-  
 　　AutoMapper 提供了 Condition 方法，可以藉由限定來源成員值處理對應成員。
   
 ```
@@ -56,11 +55,11 @@ public void MapperTestForCondition_InputSource_ReturnDestination()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Conditional mapping：[Conditional mapping]
-
-#### My Blog：
->[Condition Mapper][Condition Mapper]  
-
+  
+#### My Blog
+>[Condition Mapper][Condition Mapper]
+  
 [Conditional mapping]:https://github.com/AutoMapper/AutoMapper/wiki/Conditional-mapping
 [Condition Mapper]:http://bdottn.github.io/2015/07/01/MapperTestForCondition/
