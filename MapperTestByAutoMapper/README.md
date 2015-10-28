@@ -1,13 +1,11 @@
 # Flattening Mapper
-  
-　　AutoMapper 會嘗試比對來源型別及目標型別，Mapper 的優先順序如下：  
+　　AutoMapper 會嘗試比對來源型別及目標型別，Mapper 的優先順序如下：
 > 1. 來源型別成員（屬性、方法）與目標型別成員名稱相同時  
 來源型別成員值 → 目標型別成員值
 > 2. 來源型別方法名稱移除掉「Get」前綴詞後與目標型別成員名稱相同時  
 來源型別方法值 → 目標型別成員值
 > 3. 若目標型別成員在來源型別中都不存在  
-則會將目標型別成員依據 PascalCase 命名原則拆分成單字後進行比對  
-比對的原則為成員名稱向下層型別延伸
+則會將目標型別成員依據 PascalCase 命名原則拆分成單字後進行比對，比對的原則為成員名稱向下層型別延伸
   
 　　下面的範例測試了上述的幾種情況。
   
@@ -75,11 +73,11 @@ public void MapperTestForFlattening_InputSource_ReturnDestination()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Flattening：[Flattening]
-
-#### My Blog：
->[Flattening Mapper][Flattening Mapper]  
-
+  
+#### My Blog
+>[Flattening Mapper][Flattening Mapper]
+  
 [Flattening]:https://github.com/AutoMapper/AutoMapper/wiki/Flattening
 [Flattening Mapper]:http://bdottn.github.io/2015/06/29/MapperTestForFlattening/
