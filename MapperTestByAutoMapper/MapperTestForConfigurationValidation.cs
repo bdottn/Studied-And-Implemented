@@ -33,6 +33,7 @@ namespace MapperTestByAutoMapper
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AutoMapperConfigurationException))]
         public void MapperTestForConfigurationValidation_ThrowAutoMapperConfigurationException()
         {
             // Configure

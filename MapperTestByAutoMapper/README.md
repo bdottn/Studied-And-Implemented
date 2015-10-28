@@ -1,8 +1,7 @@
 # AutoMapper
+　　在應用程式中，Mapping 物件可能會發生在很多地方，最常發生在層級的邊界上，例如：UI / Domain，Service/Domain。如果每次都要寫一次，豈不是很累人？而當有邏輯或者成員變更時，那要改的地方可就多了。
   
-　　在應用程式中，Mapping 物件可能會發生在很多地方，最常發生在層級的邊界上，例如：UI / Domain，Service/Domain。如果每次都要寫一次，豈不是很累人？而當有邏輯或者成員變更時，那要改的地方可就多了。  
-  
-　　一般而言，在 .NET 內會使用 AutoMapper 來解決此類問題。AutoMapper 是一個物件到物件的定義工具：當有一個 object A 需要轉換到另一個 object B 時就可以用到，同時提供了許多方法來處理轉換 A → B，只要按照 AutoMapper 既有的方法來規範，轉換兩個型別時，幾乎不需要再作其他的處理。  
+　　一般而言，在 .NET 內會使用 AutoMapper 來解決此類問題。AutoMapper 是一個物件到物件的定義工具：當有一個 object A 需要轉換到另一個 object B 時就可以用到，同時提供了許多方法來處理轉換 A → B，只要按照 AutoMapper 既有的方法來規範，轉換兩個型別時，幾乎不需要再作其他的處理。
   
 　　AutoMapper 支援的平台如下：
 >* .NET 4+
@@ -28,13 +27,13 @@
 * [Condition Mapper][MapperTestForCondition]
 * [Generic Mapper][MapperTestForGeneric]
   
-#### 參考連結：
+#### 參考連結
 >1. AutoMapper Home：[AutoMapper Home]
 2. AutoMapper Getting Started：[AutoMapper Getting Started]
-
-#### My Blog：
->[AutoMapper][AutoMapper]  
-
+  
+#### My Blog
+>[AutoMapper][AutoMapper]
+  
 [MapperTestForFlattening]:https://github.com/bdottn/Studied-And-Implemented/tree/MapperTestForFlattening/MapperTestByAutoMapper
 [MapperTestForProjection]:https://github.com/bdottn/Studied-And-Implemented/tree/MapperTestForProjection/MapperTestByAutoMapper
 [MapperTestForConfigurationValidation]:https://github.com/bdottn/Studied-And-Implemented/tree/MapperTestForConfigurationValidation/MapperTestByAutoMapper
