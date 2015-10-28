@@ -1,5 +1,4 @@
 # Null Mapper Default Value
-  
 　　如果在來源成員的值是 Null 時，AutoMapper 提供了 NullSubstitute 來給定目標成員預設值。
   
 ```
@@ -56,11 +55,11 @@ public void MapperTestForNullSubstitution_InputSourceNullValue_ReturnDestination
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Null substitution：[Null substitution]
-
-#### My Blog：
->[Null Mapper Default Value][Null Mapper Default Value]  
-
+  
+#### My Blog
+>[Null Mapper Default Value][Null Mapper Default Value]
+  
 [Null substitution]:https://github.com/AutoMapper/AutoMapper/wiki/Null-substitution
 [Null Mapper Default Value]:http://bdottn.github.io/2015/06/30/MapperTestForNullSubstitution/
