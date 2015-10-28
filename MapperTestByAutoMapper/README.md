@@ -1,5 +1,4 @@
 # Mapping Inheritance And Priority
-  
 　　從 AutoMapper 2.0 以後，在繼承設定方面有著一些改善（我開始使用的版本已經是 3.3 了，以下為文件內容）。
 > 1. 成員的相關設定，如果已經在父類作設定，不用在子類再次設定
 2. 除了從父類指定子類的設定外，也可以從子類指定父類的設定
@@ -23,7 +22,6 @@ class OnlineOrder : Order
 class MailOrder : Order
 {
 }
-
 
 class OrderDto
 {
@@ -55,11 +53,11 @@ public void MapperTestForMappingInheritance_Priority_InputOnlineOrder_ReturnOrde
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Mapping inheritance：[Mapping inheritance]
-
-#### My Blog：
->[Mapping Inheritance And Priority][Mapping Inheritance And Priority]  
-
+  
+#### My Blog
+>[Mapping Inheritance And Priority][Mapping Inheritance And Priority]
+  
 [Mapping inheritance]:https://github.com/AutoMapper/AutoMapper/wiki/Mapping-inheritance
 [Mapping Inheritance And Priority]:http://bdottn.github.io/2015/06/30/MapperTestForMappingInheritance/
