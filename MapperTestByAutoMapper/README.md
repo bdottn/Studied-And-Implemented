@@ -1,5 +1,4 @@
 # BeforeMap And AfterMap
-  
 　　BeforeMap 和 AfterMap 兩個方法就如同字面上的意思，可以在 Mapper 前後作相關的處理。
   
 ```
@@ -72,11 +71,11 @@ public void MapperTestForBeforeAndAfterMapAction_Mapping_InputSource_ReturnDesti
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Before and after map actions：[Before and after map actions]
-
-#### My Blog：
->[BeforeMap And AfterMap][BeforeMap And AfterMap]  
-
+  
+#### My Blog
+>[BeforeMap And AfterMap][BeforeMap And AfterMap]
+  
 [Before and after map actions]:https://github.com/AutoMapper/AutoMapper/wiki/Before-and-after-map-actions
 [BeforeMap And AfterMap]:http://bdottn.github.io/2015/06/30/MapperTestForBeforeAndAfterMapAction/
