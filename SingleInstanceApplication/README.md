@@ -1,6 +1,5 @@
 # 搭配 [NotifyIcon] 建立單一執行個體的應用程式
-  
-　　前面說到的 [C# 使用 Mutex 建立單一執行個體的應用程式] 與 [顯示正在執行中的應用程式] 已經可以滿足大部份的狀態。下面的範例搭配 [NotifyIcon] 及 [ContextMenuStrip] 來實作按下最小化或關閉按鈕時縮至系統列，而非真正關閉表單動作。  
+　　前面說到的 [C# 使用 Mutex 建立單一執行個體的應用程式] 與 [顯示正在執行中的應用程式] 已經可以滿足大部份的狀態。下面的範例搭配 [NotifyIcon] 及 [ContextMenuStrip] 來實作按下最小化或關閉按鈕時縮至系統列，而非真正關閉表單動作。
   
 #### Program.cs
 ```
@@ -140,17 +139,16 @@ private void HideWindow()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Registerwindowmessage (user32)：[RegisterWindowMessage]
 2. Control.WndProc Method：[WndProc]
 3. FindWindow function：[FindWindow]
 4. NotifyIcon 類別：[NotifyIcon]
 5. ContextMenuStrip 類別：[ContextMenuStrip]
-
-#### My Blog：
->[搭配 NotifyIcon 建立單一執行個體的應用程式]  
-
-
+  
+#### My Blog
+>[搭配 NotifyIcon 建立單一執行個體的應用程式]
+  
 [RegisterWindowMessage]:http://www.pinvoke.net/default.aspx/user32.registerwindowmessage
 [WndProc]:https://msdn.microsoft.com/en-us/library/system.windows.forms.control.wndproc%28v=vs.110%29.aspx
 [FindWindow]:https://msdn.microsoft.com/zh-tw/library/windows/desktop/ms633499%28v=vs.85%29.aspx
