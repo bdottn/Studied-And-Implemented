@@ -1,5 +1,4 @@
 # Mapper Initialize
-  
 　　可以將 AutoMapper 的設定分別寫在繼承自 Profile 的類別當中，在 AutoMapper Initialize 時將這些類別加入即可。
   
 ```
@@ -49,11 +48,11 @@ public void MapperTestForConfiguration_UseMapperInitializeAddProfile_InputSource
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Configuration：[Configuration]
-
-#### My Blog：
->[Mapper Initialize][Mapper Initialize]  
-
+  
+#### My Blog
+>[Mapper Initialize][Mapper Initialize]
+  
 [Configuration]:https://github.com/AutoMapper/AutoMapper/wiki/Configuration
 [Mapper Initialize]:http://bdottn.github.io/2015/06/30/MapperTestForConfiguration/
