@@ -1,5 +1,4 @@
 # Nested Mapping
-  
 　　有時候型別並不是簡單型別，而是由多個型別組合而成的一個複合型別。此時在設定上需要加上其他型別的對應設定，AutoMapper 才能在碰到其他型別時有處理的依據。
   
 ```
@@ -59,11 +58,11 @@ public void MapperTestForNestedMapping_InputSource_ReturnDestination()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Nested mappings：[Nested mappings]
-
+  
 #### My Blog：
->[Nested Mapping][Nested Mapping]  
-
+>[Nested Mapping][Nested Mapping]
+  
 [Nested mappings]:https://github.com/AutoMapper/AutoMapper/wiki/Nested-mappings
 [Nested Mapping]:http://bdottn.github.io/2015/06/30/MapperTestForNestedMapping/
