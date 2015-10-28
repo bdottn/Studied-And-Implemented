@@ -1,5 +1,4 @@
 # Use Custom Value Resolver
-  
 　　有些時候，目標成員值可能需要透過來源成員進行計算或調整。AutoMapper 提供了 ValueResolver<TSource, TDestination> 抽象類別，可以藉由繼承 ValueResolver 類別來複寫 ResolveCore 方法。
   
 ```
@@ -59,11 +58,11 @@ class CustomResolver : ValueResolver<Source, int>
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Custom value resolvers：[Custom value resolvers]
-
-#### My Blog：
->[Use Custom Value Resolver][Use Custom Value Resolver]  
-
+  
+#### My Blog
+>[Use Custom Value Resolver][Use Custom Value Resolver]
+  
 [Custom value resolvers]:https://github.com/AutoMapper/AutoMapper/wiki/Custom-value-resolvers
 [Use Custom Value Resolver]:http://bdottn.github.io/2015/06/30/MapperTestForCustomValueResolver/
