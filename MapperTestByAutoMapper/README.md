@@ -1,6 +1,5 @@
 # Mapper Lists And Arrays
-  
-　　AutoMapper 支援所有基本泛型集合類型，包括了：  
+　　AutoMapper 支援所有基本泛型集合類型，包括了：
 >* IEnumerable
 * IEnumerable<T>
 * ICollection
@@ -190,7 +189,7 @@ public void MapperTestForListsAndArrays_InputSources_ReturnDestinations()
 ```
   
 　　有時候集合內的成員不僅僅是一種類型，AutoMapper 也支援多組態的集合。除了需要增加子類別的設定外，在父類別設定時需要使用 Include 來包含子類別的設定。
-   
+  
 ```
 class Source
 {
@@ -253,11 +252,11 @@ public void MapperTestForListsAndArrays_PolymorphicElementTypes_InputSources_Ret
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Lists and arrays：[Lists and arrays]
-
-#### My Blog：
->[Mapper Lists And Arrays][Mapper Lists And Arrays]  
-
+  
+#### My Blog
+>[Mapper Lists And Arrays][Mapper Lists And Arrays]
+  
 [Lists and arrays]:https://github.com/AutoMapper/AutoMapper/wiki/Lists-and-arrays
 [Mapper Lists And Arrays]:http://bdottn.github.io/2015/06/29/MapperTestForListsAndArrays/
