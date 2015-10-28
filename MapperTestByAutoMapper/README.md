@@ -1,5 +1,4 @@
 # Generic Mapper
-  
 　　支援泛型 Mapper。在使用上不用建立所有型別的設定，而可以使用開放式的通用設定，只需要在執行時給定型別即可。
   
 ```
@@ -34,11 +33,11 @@ public void MapperTestForGeneric_InputSource_ReturnDestination()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Open Generics：[Open Generics]
-
-#### My Blog：
->[Generic Mapper][Generic Mapper]  
-
+  
+#### My Blog
+>[Generic Mapper][Generic Mapper]
+  
 [Open Generics]:https://github.com/AutoMapper/AutoMapper/wiki/Open-Generics
 [Generic Mapper]:http://bdottn.github.io/2015/07/01/MapperTestForGeneric/
