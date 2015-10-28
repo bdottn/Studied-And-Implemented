@@ -1,5 +1,4 @@
 # Projection Mapper
-  
 　　由於目標型別的成員結構可能不完全等同於來源成員結構，在這種時候需要使用 MapFrom 設定自定義的設定來處理目標成員結構。
   
 ```
@@ -50,11 +49,11 @@ public void MapperTestForProjection_InputSource_ReturnDestination()
 }
 ```
   
-#### 參考連結：
+#### 參考連結
 >1. Projection：[Projection]
-
-#### My Blog：
->[Projection Mapper][Projection Mapper]  
-
+  
+#### My Blog
+>[Projection Mapper][Projection Mapper]
+  
 [Projection]:https://github.com/AutoMapper/AutoMapper/wiki/Projection
 [Projection Mapper]:http://bdottn.github.io/2015/06/29/MapperTestForProjection/
